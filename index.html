@@ -1,13 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Golf Scorecard</title>
-</head>
-<body>
-  <h1>Golf Scorecard</h1>
-</body>
-<script src="golf.js"></script>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golf Scorecard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12" id="header"><h1>Golf Scorecard</h1></div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div id="options-container">
+            <div>
+              <select name="courseSelect" id="courseSelect">
+                <option value="">Choose Your Course</option> 
+                <option value="18300">Fox Hollow</option>
+                <option value="11819">Thanksgiving Point</option>
+                <option value="19002">Spanish Oaks</option>
+              </select>
+
+              <button id="courseConfirm" onclick="setCourseId()">Confirm Course</button>
+            </div>
+
+            <div class="courseDisplay">
+              <h4>Course is set to:<h5 id="courseName"></h5></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" id="scorecard-container">
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th scope="row">Hole</th>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+              </tr>
+
+              <tr>
+                <th scope="row">Blue</th>
+              </tr>
+
+              <tr>
+                <th scope="row">Dark Green</th>
+              </tr>
+
+              <tr>
+                <th scope="row">Grey</th>
+              </tr>
+
+              <tr>
+                <th scope="row">Handicap</th>
+              </tr>
+
+              <tr>
+                <th scope="row"><input type="text"></th>
+              </tr>
+
+              <tr>
+                <th scope="row"><input type="text"></th>
+              </tr>
+              
+              <tr>
+                <th scope="row"><input type="text"></th>
+              </tr>
+
+              <tr>
+                <th scope="row"><input type="text"></th>
+              </tr>
+
+              <tr>
+                <th scope="row">Par</th>
+              </tr>
+
+              <tr>
+                <th scope="row"><input type="text"></th>
+              </tr>
+
+              <tr>
+                <th scope="row"><input type="text"></th>
+              </tr>
+
+              <tr>
+                <th scope="row"><input type="text"></th>
+              </tr>
+
+              <tr>
+                <th scope="row"><input type="text"></th>
+              </tr>
+
+              <tr>
+                <th scope="row">Light Green</th>
+              </tr>
+
+              <tr>
+                <th scope="row">Ladies Handicap</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="golf.js"></script>
 </html>

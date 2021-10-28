@@ -1,0 +1,17 @@
+body {
+
+  #options-container {
+    display: flex;
+    flex-direction: column;
+
+    .courseDisplay {
+      display: flex;
+      align-items: center;
+
+      #courseName {
+        margin-bottom: 4px;
+        margin-left: 5px;
+      }
+    }
+  }
+}

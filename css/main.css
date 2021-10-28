@@ -1,0 +1,14 @@
+body #options-container {
+  display: flex;
+  flex-direction: column;
+}
+body #options-container .courseDisplay {
+  display: flex;
+  align-items: center;
+}
+body #options-container .courseDisplay #courseName {
+  margin-bottom: 4px;
+  margin-left: 5px;
+}
+
+/*# sourceMappingURL=main.css.map */
