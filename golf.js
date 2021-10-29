@@ -1,6 +1,14 @@
 var select = document.getElementById('courseSelect');
 var courseId;
 
+class Player {
+  constructor(name, id = getNextId(), scores = []) {
+    this.name = name;
+    this.id = id;
+    this.scores = scores;
+  }
+}
+
 getAvailableCourses();
 render();
 
@@ -32,6 +40,14 @@ function getCourse(id) {
   return new Promise((resolve, reject) => {
     fetch(`https://golf-courses-api.herokuapp.com/courses/${id}`)
       .then((response) => response.json())
+      .then(function (course) {
+        console.log(course);
+        fillSheetValues(course);
+      })
       .then((data) => resolve(data));
   });
+}
+
+function fillSheetValues(course) {
+  console.log(course.data.name);
 }

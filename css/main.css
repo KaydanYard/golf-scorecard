@@ -10,5 +10,27 @@ body #options-container .courseDisplay #courseName {
   margin-bottom: 4px;
   margin-left: 5px;
 }
+body #scorecard-container .table-responsive table tr th {
+  border-left: 1px solid #DEE2E6;
+  border-right: 1px solid #DEE2E6;
+}
+body #scorecard-container .table-responsive table tr th input {
+  width: 120px;
+}
+body #scorecard-container .table-responsive table tr td {
+  text-align: center;
+  border-right: 1px solid #DEE2E6;
+  margin: 0;
+  padding: 0;
+}
+body #scorecard-container .table-responsive table tr td input {
+  width: 40px;
+  height: 55px;
+}
+body #scorecard-container .table-responsive table tr td input::-webkit-outer-spin-button,
+body #scorecard-container .table-responsive table tr td input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 /*# sourceMappingURL=main.css.map */
