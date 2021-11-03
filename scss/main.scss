@@ -34,10 +34,11 @@ body {
             border-right: 1px solid #DEE2E6;
             margin: 0;
             padding: 0;
+            padding-top: 10px;
             
             input {
               width: 40px;
-              height: 55px;
+              height: 2em;
             }
             input::-webkit-outer-spin-button,
             input::-webkit-inner-spin-button {
@@ -45,6 +46,9 @@ body {
               margin: 0;
             }
           }
+        }
+        #lhandiRowContainer {
+          border-bottom: 1px solid #DEE2E6;
         }
       }
     }

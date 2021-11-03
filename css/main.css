@@ -22,15 +22,19 @@ body #scorecard-container .table-responsive table tr td {
   border-right: 1px solid #DEE2E6;
   margin: 0;
   padding: 0;
+  padding-top: 10px;
 }
 body #scorecard-container .table-responsive table tr td input {
   width: 40px;
-  height: 55px;
+  height: 2em;
 }
 body #scorecard-container .table-responsive table tr td input::-webkit-outer-spin-button,
 body #scorecard-container .table-responsive table tr td input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+body #scorecard-container .table-responsive table #lhandiRowContainer {
+  border-bottom: 1px solid #DEE2E6;
 }
 
 /*# sourceMappingURL=main.css.map */

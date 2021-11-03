@@ -43,7 +43,7 @@
         <div class="table-responsive">
           <table class="table">
             <tbody>
-              <tr>
+              <tr id="holeRow">
                 <th scope="row">Hole</th>
                 <td>1</td>
                 <td>2</td>
@@ -66,100 +66,14 @@
                 <td>18</td>
               </tr>
 
-              <tr>
-                <th scope="row">Blue</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+              <tr id="blueRowContainer"></tr>
 
-              <tr>
-                <th scope="row">Dark Green</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+              <tr id="whiteRowContainer"></tr>
 
-              <tr>
-                <th scope="row">Grey</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+              <tr id="mhandiRowContainer"></tr>
 
-              <tr>
-                <th scope="row">Handicap</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <th scope="row"><input type="text"></th>
+              <tr id="p1Row">
+                <th scope="row"><input type="text" placeholder="Player 1"></th>
                 <td><input type="number"></td>
                 <td><input type="number"></td>
                 <td><input type="number"></td>
@@ -181,8 +95,8 @@
                 <td><input type="number"></td>
               </tr>
 
-              <tr>
-                <th scope="row"><input type="text"></th>
+              <tr id="p2Row">
+                <th scope="row"><input type="text" placeholder="Player 2"></th>
                 <td><input type="number"></td>
                 <td><input type="number"></td>
                 <td><input type="number"></td>
@@ -204,8 +118,56 @@
                 <td><input type="number"></td>
               </tr>
               
+              <tr id="p3Row">
+                <th scope="row"><input type="text" placeholder="Player 3"></th>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+              </tr>
+
+              <tr id="p4Row">
+                <th scope="row"><input type="text" placeholder="Player 4"></th>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+              </tr>
+
+              <tr id="parRowContainer"></tr>
+
               <tr>
-                <th scope="row"><input type="text"></th>
+                <th scope="row"><input type="text" placeholder="Player 1"></th>
                 <td><input type="number"></td>
                 <td><input type="number"></td>
                 <td><input type="number"></td>
@@ -228,7 +190,7 @@
               </tr>
 
               <tr>
-                <th scope="row"><input type="text"></th>
+                <th scope="row"><input type="text" placeholder="Player 2"></th>
                 <td><input type="number"></td>
                 <td><input type="number"></td>
                 <td><input type="number"></td>
@@ -251,30 +213,7 @@
               </tr>
 
               <tr>
-                <th scope="row">Par</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <th scope="row"><input type="text"></th>
+                <th scope="row"><input type="text" placeholder="Player 3"></th>
                 <td><input type="number"></td>
                 <td><input type="number"></td>
                 <td><input type="number"></td>
@@ -297,7 +236,7 @@
               </tr>
 
               <tr>
-                <th scope="row"><input type="text"></th>
+                <th scope="row"><input type="text" placeholder="Player 4"></th>
                 <td><input type="number"></td>
                 <td><input type="number"></td>
                 <td><input type="number"></td>
@@ -319,97 +258,9 @@
                 <td><input type="number"></td>
               </tr>
 
-              <tr>
-                <th scope="row"><input type="text"></th>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-              </tr>
+              <tr id="redRowContainer"></tr>
 
-              <tr>
-                <th scope="row"><input type="text"></th>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-              </tr>
-
-              <tr>
-                <th scope="row">Light Green</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <th scope="row">Ladies Handicap</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+              <tr id="lhandiRowContainer"></tr>
             </tbody>
           </table>
         </div>
