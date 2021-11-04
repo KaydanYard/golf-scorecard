@@ -1,8 +1,6 @@
 var select = document.getElementById('courseSelect');
 var courseId;
 
-var course = JSON.parse(window.localStorage.getItem('course'));
-
 class Player {
   constructor(name, id = getNextId(), scores = []) {
     this.name = name;
@@ -22,13 +20,7 @@ function render() {
 // options-container
   coursedName = select.options[select.selectedIndex].text;
   document.getElementById('courseName').innerHTML = coursedName;
-  save();
 }
-
-function save() {
-  window.localStorage.setItem('course', JSON.stringify(course)); 
-}
-
 
 function getAvailableCourses() {
   return fetch('https://golf-courses-api.herokuapp.com/courses/').then(
@@ -38,12 +30,14 @@ function getAvailableCourses() {
   )
 }
 
-function setCourseId(courseId) {
-  courseId = select.options[select.selectedIndex].value;
-  getCourse(courseId);
+function setCourseId() {
+  let courseId = courseSelect.options[courseSelect.selectedIndex].value;
+  let teebox = teeSelect.options[teeSelect.selectedIndex].value;  
+  console.log(teebox);
+  getCourse(courseId, teebox);
 }
 
-function getCourse(id) {
+function getCourse(id, teeType) {
   console.log(id);
   render();
   return new Promise((resolve, reject) => {
@@ -51,208 +45,169 @@ function getCourse(id) {
       .then((response) => response.json())
       .then(function (course) {
         console.log(course);
-        fillSheetValues(course);
+        fillSheetValues(course, teeType);
       })
       .then((data) => resolve(data));
   });
 }
 
-function fillSheetValues(course) {
-  // blue
-  let blueHolesHtml = `<tr id="blueRow">`;
-  let blueOutCounter = 0; 
+function fillSheetValues(course, teeId) {
+  if(course.data.id == '19002') {
+    teeId -= '1';
+  }
+  let holesHtml = `<tr id="${teeId}Row">`;
+  let OutCounter = 0; 
   course.data.holes.forEach((hole, idx) => {
     if (idx == 0) {
-      blueHolesHtml +=
+      holesHtml +=
       `<th scope="row">
-        Blue
+        ${course.data.holes[0].teeBoxes[teeId].teeType}
       </th>
-      <td id='blue${idx}'>
-        ${hole.teeBoxes[1].yards}
+      <td id='${teeId}${idx}'>
+        ${hole.teeBoxes[teeId].yards}
       </td>`
     }
     else if (idx == 9) {
-      blueHolesHtml += 
+      holesHtml += 
         `<td>
-          ${blueOutCounter}
+          ${OutCounter}
         </td>
-        <td id='blue${idx}'>
-          ${hole.teeBoxes[1].yards}
+        <td id='${teeId}${idx}'>
+          ${hole.teeBoxes[teeId].yards}
+        </td>`
+    } 
+    else if (idx == 17) {
+      holesHtml += 
+        `<td id='${teeId}${idx}'>
+          ${hole.teeBoxes[teeId].yards}
+        </td>
+        <td>
+          ${OutCounter}
         </td>`
     } 
     else {
-      blueHolesHtml += 
-      `<td id='blue${idx}'>
-        ${hole.teeBoxes[1].yards}
+      holesHtml += 
+      `<td id='${teeId}${idx}'>
+        ${hole.teeBoxes[teeId].yards}
       </td>`
-      blueOutCounter += hole.teeBoxes[1].yards;
+      OutCounter += hole.teeBoxes[teeId].yards;
     }  
   });
-  blueHolesHtml += `</tr>`;
-  document.getElementById('blueRowContainer').innerHTML = blueHolesHtml;
-  
-  // white
-  let whiteHolesHtml = `<tr id="whiteRow">`;
-  let whiteOutCounter = 0; 
-  course.data.holes.forEach((hole, idx) => {
-    if (idx == 0) {
-      whiteHolesHtml +=
-      `<th scope="row">
-        White
-      </th>
-      <td id='white${idx}'>
-        ${hole.teeBoxes[2].yards}
-      </td>`
+  holesHtml += `</tr>`;
+  if(course.data.id == '19002') {
+    if(teeId == 0) {
+      document.getElementById('blueRowContainer').innerHTML = holesHtml;
+      document.getElementById('redRowContainer').innerHTML = null;
+      document.getElementById('whiteRowContainer').innerHTML = null;
+    } else if (teeId == 1) {
+      document.getElementById('whiteRowContainer').innerHTML = holesHtml;
+      document.getElementById('blueRowContainer').innerHTML = null;
+      document.getElementById('redRowContainer').innerHTML = null;
+    } else if (teeId == 2) {
+      document.getElementById('redRowContainer').innerHTML = holesHtml;
+      document.getElementById('blueRowContainer').innerHTML = null;
+      document.getElementById('whiteRowContainer').innerHTML = null;
     }
-    else if (idx == 9) {
-      whiteHolesHtml += 
-        `<td>
-          ${whiteOutCounter}
-        </td>
-        <td id='white${idx}'>
-          ${hole.teeBoxes[2].yards}
-        </td>`
-    } 
-    else {
-      whiteHolesHtml += 
-      `<td id='white${idx}'>
-        ${hole.teeBoxes[2].yards}
-      </td>`
-      whiteOutCounter += hole.teeBoxes[2].yards;
-    }  
-  });
-  whiteHolesHtml += `</tr>`;
-  document.getElementById('whiteRowContainer').innerHTML = whiteHolesHtml;
-  
-  // mensHandicap
-  let mhandiHolesHtml = `<tr id="mhandiRow">`;
-  let mhandiOutCounter = 0; 
-  course.data.holes.forEach((hole, idx) => {
-    if (idx == 0) {
-      mhandiHolesHtml +=
-      `<th scope="row">
-      Men's Handicap
-      </th>
-      <td id='mhandi${idx}'>
-        ${hole.teeBoxes[2].hcp}
-      </td>`
+  } else {
+    if(teeId == 1) {
+      document.getElementById('blueRowContainer').innerHTML = holesHtml;
+      document.getElementById('redRowContainer').innerHTML = null;
+      document.getElementById('whiteRowContainer').innerHTML = null;
+    } else if (teeId == 2) {
+      document.getElementById('whiteRowContainer').innerHTML = holesHtml;
+      document.getElementById('blueRowContainer').innerHTML = null;
+      document.getElementById('redRowContainer').innerHTML = null;
+    } else if (teeId == 3) {
+      document.getElementById('redRowContainer').innerHTML = holesHtml;
+      document.getElementById('blueRowContainer').innerHTML = null;
+      document.getElementById('whiteRowContainer').innerHTML = null;
     }
-    else if (idx == 9) {
-      mhandiHolesHtml += 
-        `<td>
-          ${mhandiOutCounter}
-        </td>
-        <td id='mhandi${idx}'>
-          ${hole.teeBoxes[2].hcp}
-        </td>`
-    } 
-    else {
-      mhandiHolesHtml += 
-      `<td id='mhandi${idx}'>
-        ${hole.teeBoxes[2].hcp}
-      </td>`
-      mhandiOutCounter += hole.teeBoxes[2].hcp;
-    }  
-  });
-  mhandiHolesHtml += `</tr>`;
-  document.getElementById('mhandiRowContainer').innerHTML = mhandiHolesHtml;
-  
-  //par
-  let parHolesHtml = `<tr id="parRow">`;
+  }
+
+  let parHtml = `<tr id="parRow">`;
   let parOutCounter = 0; 
   course.data.holes.forEach((hole, idx) => {
     if (idx == 0) {
-      parHolesHtml +=
+      parHtml +=
       `<th scope="row">
         Par
       </th>
       <td id='par${idx}'>
-        ${hole.teeBoxes[2].par}
+        ${hole.teeBoxes[teeId].par}
       </td>`
     }
     else if (idx == 9) {
-      parHolesHtml += 
+      parHtml += 
         `<td>
           ${parOutCounter}
         </td>
         <td id='par${idx}'>
-          ${hole.teeBoxes[2].par}
+          ${hole.teeBoxes[teeId].par}
+        </td>`
+    } 
+    else if (idx == 17) {
+      parHtml += 
+        `<td id='par${idx}'>
+          ${hole.teeBoxes[teeId].par}
+        </td>
+        <td>
+          ${parOutCounter}
         </td>`
     } 
     else {
-      parHolesHtml += 
+      parHtml += 
       `<td id='par${idx}'>
-        ${hole.teeBoxes[2].par}
+        ${hole.teeBoxes[teeId].par}
       </td>`
-      parOutCounter += hole.teeBoxes[2].par;
+      parOutCounter += hole.teeBoxes[teeId].par;
     }  
   });
-  parHolesHtml += `</tr>`;
-  document.getElementById('parRowContainer').innerHTML = parHolesHtml;
+  parHtml += `</tr>`;
+  document.getElementById('parRowContainer').innerHTML = parHtml;
 
-  // red
-  let redHolesHtml = `<tr id="redRow">`;
-  let redOutCounter = 0; 
+let handiHtml = `<tr id="handiRow">`;
+  let handiOutCounter = 0; 
   course.data.holes.forEach((hole, idx) => {
     if (idx == 0) {
-      redHolesHtml +=
+      handiHtml +=
       `<th scope="row">
-        Red
+        Handicap
       </th>
-      <td id='red${idx}'>
-        ${hole.teeBoxes[3].yards}
+      <td id='handi${idx}'>
+        ${hole.teeBoxes[teeId].hcp}
       </td>`
     }
     else if (idx == 9) {
-      redHolesHtml += 
+      handiHtml += 
         `<td>
-          ${redOutCounter}
+          ${handiOutCounter}
         </td>
-        <td id='red${idx}'>
-          ${hole.teeBoxes[3].yards}
+        <td id='handi${idx}'>
+          ${hole.teeBoxes[teeId].hcp}
+        </td>`
+    } 
+    else if (idx == 17) {
+      handiHtml += 
+        `<td id='handi${idx}'>
+          ${hole.teeBoxes[teeId].hcp}
+        </td>
+        <td>
+          ${handiOutCounter}
         </td>`
     } 
     else {
-      redHolesHtml += 
-      `<td id='red${idx}'>
-        ${hole.teeBoxes[3].yards}
+      handiHtml += 
+      `<td id='handi${idx}'>
+        ${hole.teeBoxes[teeId].hcp}
       </td>`
-      redOutCounter += hole.teeBoxes[3].yards;
+      handiOutCounter += hole.teeBoxes[teeId].hcp;
     }  
   });
-  redHolesHtml += `</tr>`;
-  document.getElementById('redRowContainer').innerHTML = redHolesHtml;
-  
-  // ladiesHandicap
-  let lhandiHolesHtml = `<tr id="lhandiRow">`;
-  let lhandiOutCounter = 0; 
-  course.data.holes.forEach((hole, idx) => {
-    if (idx == 0) {
-      lhandiHolesHtml +=
-      `<th scope="row">
-        Ladies' Handicap
-      </th>
-      <td id='lhandi${idx}'>
-        ${hole.teeBoxes[3].hcp}
-      </td>`
-    }
-    else if (idx == 9) {
-      lhandiHolesHtml += 
-        `<td>
-          ${lhandiOutCounter}
-        </td>
-        <td id='lhandi${idx}'>
-          ${hole.teeBoxes[3].hcp}
-        </td>`
-    } 
-    else {
-      lhandiHolesHtml += 
-      `<td id='lhandi${idx}'>
-        ${hole.teeBoxes[3].hcp}
-      </td>`
-      lhandiOutCounter += hole.teeBoxes[3].hcp;
-    }  
-  });
-  lhandiHolesHtml += `</tr>`;
-  document.getElementById('lhandiRowContainer').innerHTML = lhandiHolesHtml;
+  handiHtml += `</tr>`;
+  document.getElementById('handiRowContainer').innerHTML = handiHtml;
+}
+
+function setPlayer() {
+  console.log("player set")
+  let player = new Player;
 }

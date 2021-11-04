@@ -29,6 +29,13 @@
                 <option value="19002">Spanish Oaks</option>
               </select>
 
+              <select name="teeSelect" id="teeSelect">
+                <option value="">Choose Your Teebox</option> 
+                <option value="1">Champion</option>
+                <option value="2">Men</option>
+                <option value="3">Women</option>
+              </select>
+
               <button id="courseConfirm" onclick="setCourseId()">Confirm Course</button>
             </div>
 
@@ -64,16 +71,20 @@
                 <td>16</td>
                 <td>17</td>
                 <td>18</td>
+                <td>Total</td>
               </tr>
 
               <tr id="blueRowContainer"></tr>
 
               <tr id="whiteRowContainer"></tr>
+              
+              <tr id="redRowContainer"></tr>
+              
 
-              <tr id="mhandiRowContainer"></tr>
 
               <tr id="p1Row">
-                <th scope="row"><input type="text" placeholder="Player 1"></th>
+                <th scope="row"><input type="text" id="p1" placeholder="Player 1" onsubmit="setPlayer()"></th>
+                <td><input type="number"></td>
                 <td><input type="number"></td>
                 <td><input type="number"></td>
                 <td><input type="number"></td>
@@ -116,10 +127,12 @@
                 <td><input type="number"></td>
                 <td><input type="number"></td>
                 <td><input type="number"></td>
+                <td><input type="number"></td>
               </tr>
               
               <tr id="p3Row">
                 <th scope="row"><input type="text" placeholder="Player 3"></th>
+                <td><input type="number"></td>
                 <td><input type="number"></td>
                 <td><input type="number"></td>
                 <td><input type="number"></td>
@@ -162,105 +175,10 @@
                 <td><input type="number"></td>
                 <td><input type="number"></td>
                 <td><input type="number"></td>
+                <td><input type="number"></td>
               </tr>
-
+              <tr id="handiRowContainer"></tr>
               <tr id="parRowContainer"></tr>
-
-              <tr>
-                <th scope="row"><input type="text" placeholder="Player 1"></th>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-              </tr>
-
-              <tr>
-                <th scope="row"><input type="text" placeholder="Player 2"></th>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-              </tr>
-
-              <tr>
-                <th scope="row"><input type="text" placeholder="Player 3"></th>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-              </tr>
-
-              <tr>
-                <th scope="row"><input type="text" placeholder="Player 4"></th>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-              </tr>
-
-              <tr id="redRowContainer"></tr>
-
-              <tr id="lhandiRowContainer"></tr>
             </tbody>
           </table>
         </div>

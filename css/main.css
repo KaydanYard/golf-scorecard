@@ -10,16 +10,14 @@ body #options-container .courseDisplay #courseName {
   margin-bottom: 4px;
   margin-left: 5px;
 }
-body #scorecard-container .table-responsive table tr th {
-  border-left: 1px solid #DEE2E6;
-  border-right: 1px solid #DEE2E6;
+body #scorecard-container .table-responsive table tr {
+  border: 1px solid black;
 }
 body #scorecard-container .table-responsive table tr th input {
   width: 120px;
 }
 body #scorecard-container .table-responsive table tr td {
   text-align: center;
-  border-right: 1px solid #DEE2E6;
   margin: 0;
   padding: 0;
   padding-top: 10px;
@@ -33,8 +31,21 @@ body #scorecard-container .table-responsive table tr td input::-webkit-inner-spi
   -webkit-appearance: none;
   margin: 0;
 }
-body #scorecard-container .table-responsive table #lhandiRowContainer {
-  border-bottom: 1px solid #DEE2E6;
+body #scorecard-container .table-responsive table #holeRow {
+  background-color: #00DD00;
+}
+body #scorecard-container .table-responsive table #blueRowContainer {
+  background-color: #0099FF;
+}
+body #scorecard-container .table-responsive table #parRowContainer {
+  background-color: #000000;
+  color: #dadfea;
+}
+body #scorecard-container .table-responsive table #redRowContainer {
+  background-color: #DF0000;
+}
+body #scorecard-container .table-responsive table #handiRowContainer {
+  background-color: #dadfea;
 }
 
 /*# sourceMappingURL=main.css.map */

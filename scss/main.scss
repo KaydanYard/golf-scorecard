@@ -19,10 +19,9 @@ body {
     .table-responsive {
       table {
         tr {
-          
+          border: 1px solid black;
+
           th {
-            border-left: 1px solid #DEE2E6;
-            border-right: 1px solid #DEE2E6;
 
             input {
               width: 120px;
@@ -31,7 +30,6 @@ body {
 
           td {
             text-align: center;
-            border-right: 1px solid #DEE2E6;
             margin: 0;
             padding: 0;
             padding-top: 10px;
@@ -47,8 +45,26 @@ body {
             }
           }
         }
-        #lhandiRowContainer {
-          border-bottom: 1px solid #DEE2E6;
+
+        #holeRow {
+          background-color: #00DD00;
+        }
+
+        #blueRowContainer {
+          background-color: #0099FF;
+        }
+
+        #parRowContainer {
+          background-color: #000000;
+          color: #dadfea;
+        }
+
+        #redRowContainer {
+          background-color: #DF0000;
+        }
+
+        #handiRowContainer {
+          background-color: #dadfea;
         }
       }
     }
